@@ -1,0 +1,24 @@
+{
+  "name": "vss-version",
+  "version": "1.0.0-SNAPSHOT",
+  "description": "vss-extension version parser and modifier",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/janjaali/vss-version.git"
+  },
+  "keywords": [
+    "vss",
+    "tfx",
+    "version"
+  ],
+  "author": "janjaali",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/janjaali/vss-version/issues"
+  },
+  "homepage": "https://github.com/janjaali/vss-version#readme"
+}
