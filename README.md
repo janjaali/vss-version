@@ -1,2 +1,2 @@
 # vss-version
-vss-extension version parser and modifier
+vss-extension version parser and modifier.
