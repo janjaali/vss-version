@@ -4,7 +4,7 @@
   "description": "vss-extension version parser and modifier",
   "scripts": {
     "clean": "rimraf -rf build",
-    "lint": "./node_modules/.bin/tslint src/**",
+    "lint": "./node_modules/.bin/tslint 'src/**' 'tests/**'",
     "compile": "./node_modules/.bin/tsc -p .",
     "build": "npm run clean && npm run lint && npm run compile",
     "commit": "commit-wizard"
@@ -25,9 +25,11 @@
   },
   "homepage": "https://github.com/janjaali/vss-version#readme",
   "bin": {
-    "vss-version": "./build/app.js"
+    "vss-version": "./build/lib.js"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@types/node": "^8.0.53"
+  },
   "devDependencies": {
     "pre-git": "^3.16.0",
     "rimraf": "^2.6.2",
