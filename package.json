@@ -20,6 +20,9 @@
     "url": "https://github.com/janjaali/vss-version/issues"
   },
   "homepage": "https://github.com/janjaali/vss-version#readme",
+  "bin": {
+    "vss-version": "./build/app.js"
+  },
   "dependencies": {},
   "devDependencies": {
     "typescript": "^2.6.1"
