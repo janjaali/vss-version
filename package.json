@@ -5,7 +5,8 @@
   "scripts": {
     "lint": "./node_modules/.bin/tslint src/**",
     "compile": "./node_modules/.bin/tsc -p .",
-    "build": "npm run lint && npm run compile"
+    "build": "npm run lint && npm run compile",
+    "commit": "commit-wizard"
   },
   "repository": {
     "type": "git",
@@ -27,11 +28,15 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "pre-push": "^0.1.1",
+    "pre-git": "^3.16.0",
     "tslint": "^5.8.0",
     "typescript": "^2.6.1"
   },
-  "pre-push": [
-    "lint"
-  ]
+  "config": {
+    "pre-git": {
+      "pre-push": [
+        "npm run build"
+      ]
+    }
+  }
 }
