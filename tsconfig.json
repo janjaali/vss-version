@@ -1,7 +1,8 @@
 {
     "compilerOptions": {
         "module": "es2015",
-        "outDir": "build"
+        "outDir": "build",
+        "types": ["node"]
     },
     "include": [
         "src/**/*"
