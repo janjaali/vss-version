@@ -1,17 +1,18 @@
 import { readFile } from 'fs';
-import { ExtensionConfig } from './ExtensionConfig';
+import Version from './Version';
 
 class VssExtensionConfigParser {
     private extensionConfig: Promise<object> = this.readExtensionConfigFile();
 
-    public async parseVersion(): Promise<string> {
+    public async parseVersion(): Promise<Version> {
         const config = await this.extensionConfig;
 
         if (!config['version']) {
             throw Error('Version property must be set in vss-extension.json.');
         }
 
-        return config['version'];
+        const version = config['version'];
+        return new Version(version);
     }
 
     private readExtensionConfigFile(): Promise<object> {
