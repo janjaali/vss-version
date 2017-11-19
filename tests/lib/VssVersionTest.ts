@@ -1,7 +1,7 @@
 import VssVersion from '../../src/lib/VssVersion';
 
-describe('VssVersion', () => {
+describe('VssVersion', async () => {
     it('throws error for invalid commands', () => {
-        expect(VssVersion.run).toThrowError();
+        expect(VssVersion.run).rejects.toThrowError();
     });
 });
