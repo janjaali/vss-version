@@ -1,46 +1,59 @@
 {
-  "name": "vss-version",
-  "version": "1.0.0-SNAPSHOT",
-  "description": "vss-extension version parser and modifier",
-  "scripts": {
-    "clean": "rimraf -rf build",
-    "lint": "./node_modules/.bin/tslint 'src/**' 'tests/**'",
-    "compile": "./node_modules/.bin/tsc -p .",
-    "build": "npm run clean && npm run lint && npm run compile",
-    "commit": "commit-wizard"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/janjaali/vss-version.git"
-  },
-  "keywords": [
-    "vss",
-    "tfx",
-    "version"
-  ],
-  "author": "janjaali",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/janjaali/vss-version/issues"
-  },
-  "homepage": "https://github.com/janjaali/vss-version#readme",
-  "bin": {
-    "vss-version": "./build/lib.js"
-  },
-  "dependencies": {
-    "@types/node": "^8.0.53"
-  },
-  "devDependencies": {
-    "pre-git": "^3.16.0",
-    "rimraf": "^2.6.2",
-    "tslint": "^5.8.0",
-    "typescript": "^2.6.1"
-  },
-  "config": {
-    "pre-git": {
-      "pre-push": [
-        "npm run build"
-      ]
+    "name": "vss-version",
+    "version": "1.0.0-SNAPSHOT",
+    "description": "vss-extension version parser and modifier",
+    "scripts": {
+        "clean": "rimraf -rf build",
+        "lint": "./node_modules/.bin/tslint 'src/**' 'tests/**'",
+        "compile": "./node_modules/.bin/tsc -p .",
+        "test": "jest",
+        "build": "npm run clean && npm run lint && npm run compile && npm run test"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/janjaali/vss-version.git"
+    },
+    "keywords": [
+        "vss",
+        "tfx",
+        "version"
+    ],
+    "author": "janjaali",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/janjaali/vss-version/issues"
+    },
+    "homepage": "https://github.com/janjaali/vss-version#readme",
+    "bin": {
+        "vss-version": "./build/lib.js"
+    },
+    "dependencies": {
+        "@types/node": "^8.0.53"
+    },
+    "devDependencies": {
+        "@types/jest": "^21.1.6",
+        "jest": "^21.2.1",
+        "pre-git": "^3.16.0",
+        "rimraf": "^2.6.2",
+        "ts-jest": "^21.2.3",
+        "tslint": "^5.8.0",
+        "typescript": "^2.6.1"
+    },
+    "config": {
+        "pre-git": {
+            "pre-push": [
+                "npm run build"
+            ]
+        }
+    },
+    "jest": {
+        "transform": {
+            "^.+\\.ts$": "ts-jest"
+        },
+        "testRegex": "(/tests/.*|(\\.|/)(test|spec))\\.ts$",
+        "moduleFileExtensions": [
+            "ts",
+            "js"
+        ]
     }
-  }
 }
