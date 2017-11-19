@@ -6,17 +6,17 @@ class VssVersion {
             throw Error('Invalid command: Specify command and version (e.g. --inc minor).');
         } else if (args[0] !== '--inc') {
             throw Error(`Invalid command ${args[0]}. Try --inc.`);
-        } else if (this.supportedVersions.indexOf(args[1]) < 0) {
-            throw Error(`Unsupported target version ${args[1]}. Supported versions: ${this.supportedVersions}`);
         }
 
         const configParser = new VssExtensionConfigParser();
         const version = await configParser.parseVersion();
-        /* tslint:disable */
-        console.log(version);
-    }
 
-    private static supportedVersions = ['major', 'patch', 'minor', 'build'];
+        const selectedTargetVersion = args[1];
+        const targetVersion = version.increment(selectedTargetVersion);
+
+        /* tslint:disable */
+        console.log(targetVersion);
+    }
 }
 
 export default VssVersion;
