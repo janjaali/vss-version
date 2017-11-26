@@ -1,4 +1,4 @@
-import VssExtensionConfigParser from './VssExtensionConfigParser';
+import VssExtensionConfigController from './VssExtensionConfigController';
 
 class VssVersion {
     public static async run(args: string[]): Promise<any> {
@@ -8,14 +8,13 @@ class VssVersion {
             throw Error(`Invalid command ${args[0]}. Try --inc.`);
         }
 
-        const configParser = new VssExtensionConfigParser();
-        const version = await configParser.parseVersion();
+        const configController = new VssExtensionConfigController();
+        const version = await configController.readVersion();
 
         const selectedTargetVersion = args[1];
-        const targetVersion = version.increment(selectedTargetVersion);
+        const incrementedVersion = version.increment(selectedTargetVersion);
 
-        /* tslint:disable */
-        console.log(targetVersion);
+        configController.writeVersion(incrementedVersion.toString());
     }
 }
 

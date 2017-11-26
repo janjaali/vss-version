@@ -26,6 +26,10 @@ class Version {
         }
     }
 
+    public toString(): string {
+        return this.version.join('.');
+    }
+
     private incrementAtPosition(versionPosition: number): Version {
         const version = this.version.map((v, i) => {
             if (i < versionPosition) {

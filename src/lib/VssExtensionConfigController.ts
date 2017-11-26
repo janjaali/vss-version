@@ -1,10 +1,12 @@
-import { readFile } from 'fs';
+import { readFile, writeFile } from 'fs';
 import Version from './Version';
 
-class VssExtensionConfigParser {
-    private extensionConfig: Promise<object> = this.readExtensionConfigFile();
+class VssExtensionConfigController {
+    private readonly vssExtensionPath: string = 'vss-extension.json';
 
-    public async parseVersion(): Promise<Version> {
+    private readonly extensionConfig: Promise<object> = this.readExtensionConfigFile();
+
+    public async readVersion(): Promise<Version> {
         const config = await this.extensionConfig;
 
         if (!config['version']) {
@@ -15,9 +17,18 @@ class VssExtensionConfigParser {
         return new Version(version);
     }
 
+    public async writeVersion(version: string): Promise<void> {
+        const config = await this.extensionConfig;
+        config['version'] = version;
+
+        writeFile(this.vssExtensionPath, JSON.stringify(config, null, 4), (err) => {
+            console.log(err);
+        });
+    }
+
     private readExtensionConfigFile(): Promise<object> {
         return new Promise<object>((resolve, reject) => {
-            readFile('vss-extension.json', (err, data) => {
+            readFile(this.vssExtensionPath, (err, data) => {
                 if (err) {
                     reject(err);
                 } else if (!data) {
@@ -30,4 +41,4 @@ class VssExtensionConfigParser {
     }
 }
 
-export default VssExtensionConfigParser;
+export default VssExtensionConfigController;
