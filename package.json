@@ -1,6 +1,6 @@
 {
     "name": "vss-version",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "vss-extension version parser and modifier",
     "scripts": {
         "clean": "rimraf -rf build",
@@ -8,7 +8,7 @@
         "compile": "./node_modules/.bin/tsc -p .",
         "test": "jest",
         "build": "npm run clean && npm run lint && npm run compile && npm run test",
-        "publish": "npm run build && npm run publish"
+        "publish": "npm run build && npm publish"
     },
     "repository": {
         "type": "git",
