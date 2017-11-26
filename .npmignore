@@ -1,6 +1,11 @@
 .vscode
+
+.circleci
+
 node_modules
+
 tests
+
 .editorconfig
 .gitignore
 tsconfig.json
