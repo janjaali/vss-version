@@ -1,6 +1,6 @@
 {
     "name": "vss-version",
-    "version": "1.0.0-SNAPSHOT",
+    "version": "1.0.0",
     "description": "vss-extension version parser and modifier",
     "scripts": {
         "clean": "rimraf -rf build",
