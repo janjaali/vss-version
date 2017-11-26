@@ -1,5 +1,7 @@
 # VSS-Version
 
+ [![CircleCI Status](https://circleci.com/gh/janjaali/vss-version.svg?style=shield&circle-token=:circle-token)](https://circleci.com/gh/janjaali/vss-version)
+
 VSS-Version provides helper functions for modifying extension manifests (i.e. `vss-extension.json`) in Visual Studio Team Services (VSTS) Extension development (https://docs.microsoft.com/de-de/vsts/extend/get-started/node).
 
 ## Install
